@@ -1,3 +1,14 @@
 spring:
   application:
     name: financial
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:financial-db}
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: ${POSTGRES_PASSWORD:12345678}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
