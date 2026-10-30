@@ -17,11 +17,13 @@ public class DataInitializer implements ApplicationRunner {
 
     private final CustomerService customerService;
 
+    private static final String PASSWORD = "1234";
+
     @Override
     public void run(ApplicationArguments args) {
-        customerService.create(new CreateCustomerRequest("Luciana", "2000-01-09"));
-        customerService.create(new CreateCustomerRequest("Matheus", "2000-10-11"));
-        customerService.create(new CreateCustomerRequest("Carlos", "2000-03-18"));
+        customerService.create(new CreateCustomerRequest("Luciana", "2000-01-09", PASSWORD));
+        customerService.create(new CreateCustomerRequest("Matheus", "2000-10-11", PASSWORD));
+        customerService.create(new CreateCustomerRequest("Carlos", "2000-03-18", PASSWORD));
 
         log.info("Seed finalizado.");
     }

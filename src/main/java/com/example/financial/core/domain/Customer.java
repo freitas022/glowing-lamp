@@ -23,8 +23,16 @@ public class Customer {
     @Column(nullable = false, name = "birth_date")
     private LocalDate birthDate;
 
-    public Customer(String name, LocalDate birthDate) {
+    private String passwordHash;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "role")
+    private ERole role;
+
+    public Customer(String name, LocalDate birthDate, String passwordHash) {
         this.name = name;
         this.birthDate = birthDate;
+        this.passwordHash = passwordHash;
+        this.role = ERole.CUSTOMER;
     }
 }
